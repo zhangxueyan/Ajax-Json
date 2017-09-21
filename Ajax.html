@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+  <div id="myDiv"></div>
+   <button>点击获取数据</button> 
+   <script>
+   var url = "https://zhangxueyan.github.io/private/test.txt";
+       // 原生方式一
+       // function loadMore(){
+       //  var xml = new XMLHttpRequest();
+       //  xml.onreadystatechange= function(){
+       //      if(xml.readyState == 4&&xml.status==200){
+       //          console.log(xml.responseText)
+       //      }
+       //   }
+       //   xml.open('GET','http://zhangxueyan.github.io/private/test.txt',true);
+       //   xml.send()
+       // }
+
+       // jquery方式二
+       // $("button").click(function(){
+       //   $.get(url,function(data,status){
+       //       console.log(data);
+       //       console.log(status);
+       //   })
+       // })
+
+       // jquery方式三
+       $.ajax({ 
+          type:'get', 
+          url:url, 
+          success:function(data,status){ 
+          console.log(data);
+        } 
+      });
+
+   </script>
+</body>
+</html>

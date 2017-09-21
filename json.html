@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>json</title>
+   <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+<div class="box">
+  <p>hello world</p>
+</div>
+<script>
+     $.ajax({
+      type:'get',
+      async:true,
+      url:"https://zhangxueyan.github.io/private/test.txt",
+      dataType : "text",//数据类型为txt 
+      success : function(data){
+       console.log(data)  //获取的data是json数据
+       var obj = JSON.parse(data)   
+       console.log(obj) //JSON.parse(json) 转为js对象
+       var json = JSON.stringify(obj)
+       console.log(json) //JSON.stringify(obj) 转为json键值对
+       }
+     })
+</script>
+</body>
+</html>

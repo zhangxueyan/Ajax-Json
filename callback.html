@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>callback</title>
+</head>
+<body>
+  <script>
+    function add(a,b,callback){
+      callback(a+b)
+    }
+    function callback(result){
+      console.log(result)
+    }
+    add(1,2,callback);
+
+  </script>
+</body>
+</html>

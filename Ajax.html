@@ -18,9 +18,10 @@
        //          console.log(xml.responseText)
        //      }
        //   }
-       //   xml.open('GET','http://zhangxueyan.github.io/private/test.txt',true);
+       //   xml.open('GET',url,true);
        //   xml.send()
        // }
+       // loadMore();
 
        // jquery方式二
        // $("button").click(function(){
@@ -30,15 +31,24 @@
        //   })
        // })
 
-       // jquery方式三
-       $.ajax({ 
-          type:'get', 
-          url:url, 
-          success:function(data,status){ 
-          console.log(data);
-        } 
-      });
-
+      // jquery方式三
+      function localHandler(data){
+        alert('我是本地函数可被跨域的remote.js调用,远程js带来的数据是:' + data.result);
+      };
+        $.ajax({ 
+          type:'get',
+          async:true,
+          url:"https://zhangxueyan.github.io/js/server.js",
+          dataType : "jsonp",//数据类型为jsonp  
+          jsonp: "callback",//服务端用于接收callback调用的function名的参数  
+          jsonpCallback:"localHandler",
+          success : function(json){  
+             console.log(json.result)
+           },
+           error: function(){
+             alert('fail');
+           }
+          });
    </script>
 </body>
 </html>

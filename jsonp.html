@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>jsonp</title>
+   <script>
+      function localHandler(data){
+        alert('我是本地函数可被跨域的remote.js调用,远程js带来的数据是:' + data.result);
+      };
+      // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码）
+      var url = "https://zhangxueyan.github.io/js/server.js";
+      var script = document.createElement('script');
+      script.setAttribute('src', url);
+      // 把script标签加入head，此时调用开始
+      document.getElementsByTagName('head')[0].appendChild(script);
+   </script>
+   <!-- <script type="text/javascript" src="https://zhangxueyan.github.io/js/server.js"></script> -->
+</head>
+<body>
+<div class="box">
+  <p>hello world</p>
+</div>
+</body>
+</html>
